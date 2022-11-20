@@ -1,0 +1,88 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Student</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body style="background-color:rgb(142, 157, 239) ;">
+
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">College Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link " href="{% url 'home_page' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">FeedBack Section</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="{% url 'student_reg' %}">Add New Student</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Marks</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page"  href="{% url 'data_page' %}">Student Recourd</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class=".container-fluid">
+    <div class="container py-5 h-100">
+      <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th>Name of student</th>
+            <th>Regsiter Number</th>
+            <th>Address</th>
+            <th>Taluka</th>
+            <th>District</th>
+            <th>State</th>
+            <th>Pin Code</th>
+          </tr>
+        </thead>
+        <tbody style="background-color: #e3f2fd; color:black">
+          <tr>
+            {% for entry in Students %}
+            <td> {{ entry.SName}} </td>
+            <td> {{ entry.Reg_No }} </td>
+            <td> {{ entry.Address }} </td>
+            <td> {{ entry.Taluka }} </td>
+            <td> {{ entry.District }} </td>
+            <td> {{ entry.State }} </td>
+            <td> {{ entry.Pincode }} </td>
+          </tr>
+
+
+
+          </ol>
+
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
